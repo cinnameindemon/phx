@@ -101,115 +101,11 @@
   </style>
 </head>
 <body>
-<form class="form-container" id="metricsForm">
+  <form class="form-container" id="metricsForm">
     <div class="form-header">
       <h2>Metrics Team Data Entry</h2>
       <p style="color:white">Required fields are marked with *</p>
     </div>
 
     <div class="form-group">
-      <label for="eventDate">Please choose the date for the month being recorded:*</label>
-      <input type="date" id="eventDate" name="eventDate" required>
-    </div>
-	<hr>
-<p style="color:white"><b>Player Related Data Entry</b></p>
-      <p style="color:white">Please note that the players mentioned in the following questions are arranged according to their power level as of June 4, 2025.</p>
-	  <hr>
-    <!-- 🧩 Dynamic Player Input Section -->
-    <div id="playerForm"></div>
-<hr>
-      <p style="color:white">Please direct any questions or concerns regarding this form to CinnameinDemon, Thank you.</p>
-    <div class="form-actions">
-      <button type="submit">Submit</button>
-    </div>
-  </form>
-
-  <script>
-    const names = [
-      "Tapmonkey","InigoMontoya69","SmaugsWrath","OfficerMartian","AgentMeyhem",
-      "SpyderSands","MustBTV","KaptChaos","VaIeMorningstar","AlmostSweetSisko",
-      "CeserationH","Palidan","Shortys12","Queen69","LokiJr","BeastmasterGar",
-      "KNlGHT","HueyNC1958","Ravenwise","SupermanGhali","EganEgan","Wyllow",
-      "Farmonte","LOVEofminister","TheRabidGypsy","Arandaegul","Grandmasterchaos",
-      "KizdomOfPain","JerseyRush","GreatJollyRoger","Norgoth","EmeraldSea",
-      "Shady022","Apollo9252","MandoTheReclusive","CGTSurge","Skavinger",
-      "DreamingSquirrel","DieHardCubbie1","SpaceTremors","cptWildcat","ErinOfNine",
-      "TempletonFace","Archangelion1","ChefVlahos","AndrewAfflicted","LePetitViking",
-      "D3TheChaosFairy","Thcdaily","BigDaver58","RendoNinja","just33",
-      "CinnameinDemon","Eggz831","DecoNuvo","Namyzn","Kitz1","Player4Life187",
-      "Shoshonna","Pericles23","Slimrider","LordNerfHerder","CaptainKirksWife",
-      "AShizzle1983","Narshadda","CaffeineOverload","PbintoAu","TheGreatBlumpkin",
-      "EleventhSanity5","EShackleton","mkaaes","MrCinn","Viper8530","CyriusTiberius",
-      "CaptainR2","Slardybartfastest","SidMaster","ArchangelBeleric","JerrayKletour",
-      "GTB81","RissaU","BrosiffChaos","Waldo27528"
-    ];
-
-    const form = document.getElementById("playerForm");
-
-    names.forEach(name => {
-      const group = document.createElement("div");
-      group.className = "form-group";
-
-      const label = document.createElement("label");
-      label.textContent = name;
-      label.setAttribute("for", name);
-
-      const input = document.createElement("input");
-      input.type = "text";
-      input.name = name;
-      input.id = name;
-      input.maxLength = 20;
-      input.placeholder = "Enter data";
-
-      group.appendChild(label);
-      group.appendChild(input);
-      form.appendChild(group);
-    });
-  </script>
-  <script>
-  const names = [/* your array */];
-  const form = document.getElementById("playerForm");
-
-  names.forEach(name => {
-    const group = document.createElement("div");
-    group.className = "form-group";
-
-    const label = document.createElement("label");
-    label.textContent = name;
-    label.setAttribute("for", name);
-
-    const input = document.createElement("input");
-    input.type = "text";
-    input.name = name;
-    input.id = name;
-    input.maxLength = 20;
-    input.placeholder = "Enter data";
-
-    group.appendChild(label);
-    group.appendChild(input);
-    form.appendChild(group);
-  });
-
-  // 🔁 Submit handler
-  document.getElementById("metricsForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // Stop regular form submission
-
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwuLaPvEc5ihBZ6Q4OYCrPY3TB17CL7hYpgo7i5futXMITxW0GkTHOVGoD1AlV9cLo8/exe";
-    const formData = new FormData(this);
-
-    fetch(scriptURL, {
-      method: "POST",
-      body: formData
-    })
-    .then(response => {
-      alert("Form submitted successfully!");
-      this.reset(); // Optional: clear form
-    })
-    .catch(error => {
-      alert("Submission failed. Please try again.");
-      console.error("Error!", error.message);
-    });
-  });
-</script>
-</body>
-</html>
+      <label for="eventDate">Please choose the date for the month being recorded:*</label*
