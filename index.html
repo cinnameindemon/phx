@@ -108,4 +108,86 @@
     </div>
 
     <div class="form-group">
-      <label for="eventDate">Please choose the date for the month being recorded:*</label*
+      <label for="eventDate">Please choose the date for the month being recorded:*</label>
+      <input type="date" id="eventDate" name="eventDate" required>
+    </div>
+
+    <hr>
+    <p style="color:white"><b>Player Related Data Entry</b></p>
+    <p style="color:white">Please note that the players mentioned in the following questions are arranged according to their power level as of June 4, 2025.</p>
+    <hr>
+
+    <div id="playerForm"></div>
+
+    <hr>
+    <p style="color:white">Please direct any questions or concerns regarding this form to CinnameinDemon. Thank you.</p>
+
+    <div class="form-actions">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <script>
+    const names = [
+      "Tapmonkey", "InigoMontoya69", "SmaugsWrath", "OfficerMartian", "AgentMeyhem",
+      "SpyderSands", "MustBTV", "KaptChaos", "VaIeMorningstar", "AlmostSweetSisko",
+      "CeserationH", "Palidan", "Shortys12", "Queen69", "LokiJr", "BeastmasterGar",
+      "KNlGHT", "HueyNC1958", "Ravenwise", "SupermanGhali", "EganEgan", "Wyllow",
+      "Farmonte", "LOVEofminister", "TheRabidGypsy", "Arandaegul", "Grandmasterchaos",
+      "KizdomOfPain", "JerseyRush", "GreatJollyRoger", "Norgoth", "EmeraldSea",
+      "Shady022", "Apollo9252", "MandoTheReclusive", "CGTSurge", "Skavinger",
+      "DreamingSquirrel", "DieHardCubbie1", "SpaceTremors", "cptWildcat", "ErinOfNine",
+      "TempletonFace", "Archangelion1", "ChefVlahos", "AndrewAfflicted", "LePetitViking",
+      "D3TheChaosFairy", "Thcdaily", "BigDaver58", "RendoNinja", "just33",
+      "CinnameinDemon", "Eggz831", "DecoNuvo", "Namyzn", "Kitz1", "Player4Life187",
+      "Shoshonna", "Pericles23", "Slimrider", "LordNerfHerder", "CaptainKirksWife",
+      "AShizzle1983", "Narshadda", "CaffeineOverload", "PbintoAu", "TheGreatBlumpkin",
+      "EleventhSanity5", "EShackleton", "mkaaes", "MrCinn", "Viper8530", "CyriusTiberius",
+      "CaptainR2", "Slardybartfastest", "SidMaster", "ArchangelBeleric", "JerrayKletour",
+      "GTB81", "RissaU", "BrosiffChaos", "Waldo27528"
+    ];
+
+    const formSection = document.getElementById("playerForm");
+
+    names.forEach(name => {
+      const group = document.createElement("div");
+      group.className = "form-group";
+
+      const label = document.createElement("label");
+      label.textContent = name;
+      label.setAttribute("for", name);
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.name = name;
+      input.id = name;
+      input.maxLength = 20;
+      input.placeholder = "Enter data";
+
+      group.appendChild(label);
+      group.appendChild(input);
+      formSection.appendChild(group);
+    });
+
+    document.getElementById("metricsForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const scriptURL = "https://script.google.com/macros/s/AKfycbydOhj7E45WvlXEP-PN9HudF67w0XrtKiV9GtHp8Ko/dev";
+      const formData = new FormData(this);
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: formData
+      })
+      .then(response => {
+        alert("Form submitted successfully!");
+        this.reset();
+      })
+      .catch(error => {
+        console.error("Submission error:", error);
+        alert("Submission failed. Please try again.");
+      });
+    });
+  </script>
+</body>
+</html>
